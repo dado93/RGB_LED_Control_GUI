@@ -1,0 +1,93 @@
+#:kivy 1.10.1
+
+<Container>:
+    orientation: "vertical"
+    padding: 10
+    spacing: 10
+
+    bottom_label: _bottom_label
+    red_slider: _red_slider
+    green_slider: _green_slider
+    blue_slider: _blue_slider
+    send_button: _send_button
+    data_input: _data_input
+
+    canvas.before:
+        Color:
+            rgba: (0, 0, 0, 1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    
+    Label:
+        text: "RGB LED Control"
+        bold: True
+        color: 0.5, 0.5, 0.5, 1.0
+        font_size: sp(30)
+        size_hint_y: 0.15
+        size_hint_x: 1.0
+
+    ColorSlider:
+        id: _red_slider
+        disabled: True
+    ColorSlider:
+        id: _green_slider
+        disabled: True
+    ColorSlider:
+        id: _blue_slider
+        disabled: True
+    BoxLayout:
+        orientation:'horizontal'
+        TextInput:
+            id: _data_input
+        
+        Button:
+            id: _send_button
+            text: "Send"
+    
+    BottomLabel:
+        size_hint_y: 0.2
+        size_hint_x: 1.0
+        id: _bottom_label
+
+<ColorSlider>:
+    orientation: "horizontal"
+    color_label: _color_label
+    value_slider: _value_slider
+    value_label: _value_label
+    Label:
+        id: _color_label
+        bold: True
+    Slider:
+        min: 0
+        max: 255
+        step: 1
+        id: _value_slider
+    Label:
+        id:_value_label
+        text: "0.0"
+        bold: True
+
+<BottomLabel>:
+    orientation: "vertical"
+    bottom_label: _bottom_label
+    canvas.before:
+        Color:
+            rgba: (1,1,1,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+        Color:
+            rgba: (0,0,0,1)
+        Rectangle:
+            pos: self.x + 5, self.y + 5 
+            size: self.width - 10, self.height - 10
+    Label:
+        id: _bottom_label
+        size: self.texture_size
+        halign: 'left'
+        valign: 'center'
+        color: (1,1,1,1)
+        padding_x: 20
+        #padding_y: 18
+        text_size: root.width, None
