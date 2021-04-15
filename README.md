@@ -4,7 +4,7 @@ This is a Kivy GUI for the control of a RGB LED via serial port. This GUI was de
 ## Functionality
 The GUI shows three sliders, that allow to control the three channels of the RGB LED.
 
-![alt text](https://github.com/dado93/RGB_LED_Control_GUI/blob/main/images/screen.jpg?raw=true)
+![alt text](https://github.com/dado93/RGB_LED_Control_GUI/blob/main/images/screen.png?raw=true)
 
 When clicking on the "Update Color" button, the following packet is sent to the MCU:
 
